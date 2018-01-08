@@ -1,0 +1,10 @@
+version: '2'
+services:
+  nightwatch:
+    environment:
+      - WAIT_FOR_HOSTS=chromedriver:4444 chromedriver:6060
+      - URL=http://something.com
+networks:
+  default:
+    external:
+      name: test-net

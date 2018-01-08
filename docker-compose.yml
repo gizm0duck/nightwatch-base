@@ -1,0 +1,22 @@
+version: '2'
+services:
+  chromedriver:
+    image: blueimp/chromedriver
+    environment:
+      - VNC_ENABLED=true
+      - EXPOSE_X11=true
+    ports:
+      - 5901:5900
+  nightwatch:
+    image: quay.io/gizm0duck0/nightwatch:latest
+    volumes:
+      - ./:/home/node
+    depends_on:
+      - chromedriver
+    environment:
+      - WAIT_FOR_HOSTS=chromedriver:4444 chromedriver:6060
+      - URL=https://something.com
+networks:
+  default:
+    external:
+      name: test-net

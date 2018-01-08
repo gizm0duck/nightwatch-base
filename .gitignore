@@ -1,0 +1,19 @@
+.DS_STORE
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+.tm_properties
+.byebug_history
+node_modules/
+
+npm-debug.log
+nohup.out
+selenium-debug.log
+.DS_Store
+
+reports
+screenshots
+.env
+.bash_history
+.npm/
